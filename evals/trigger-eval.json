@@ -1,0 +1,22 @@
+[
+  {"query": "この体験型マニュアルを S1000D にしてほしい。パスは ~/work/kenbaiki/kenbaiki.manual.json で、出力は ~/csdb/kenbaiki に", "should_trigger": true},
+  {"query": "manual.json を DM に変換して。Topic ごとにデータモジュールになるんだよね？", "should_trigger": true},
+  {"query": "券売機のマニュアルを CSDB に出力して、そのまま verify まで通してほしい", "should_trigger": true},
+  {"query": "experiential-manual-model の JSON から S1000D のデータモジュールとパブリケーションモジュールを作りたいです。採番の規則はまだ決めてない", "should_trigger": true},
+  {"query": "体験型の操作マニュアル（画面のスクリーンショットにホットスポットを付けたやつ）を、S1000D の CSDB に入れる手順を教えて。実際にやってほしい", "should_trigger": true},
+  {"query": "前に変換した体験型マニュアルを直したので、同じ DMC のまま再変換したい。台帳ってどう持っておけばいい？", "should_trigger": true},
+  {"query": "マニュアルの JSON を convert して、DM の一覧と、S1000D で表せなかったものを教えて", "should_trigger": true},
+  {"query": "画面遷移の Topic が入ったマニュアルを S1000D のプロセス DM にしたい。情報コードは何を渡せばいい？", "should_trigger": true},
+  {"query": "kenbaiki.manual.json を Issue 7 の CSDB に変換して書き込んで。書く前に何ができるか見せてほしい", "should_trigger": true},
+  {"query": "体験型マニュアルを S1000D 化したら、ホットスポットの座標とか消えちゃう？変換結果を見て報告して", "should_trigger": true},
+  {"query": "手順の下書きを JSON で作ったので、これを S1000D の手順データモジュールにして検証まで通したい（体験型マニュアルは使っていない）", "should_trigger": false},
+  {"query": "仕様メモから説明のデータモジュールを 1 件作って、DML に載っているか確かめて", "should_trigger": false},
+  {"query": "CSDB にある手順 DM をレビューして、STE に沿っているか見てコメントを残して", "should_trigger": false},
+  {"query": "この日本語の DM を en-US の DM に翻訳して。xcomet で採点もしてほしい", "should_trigger": false},
+  {"query": "S1000D のデータモジュールが BREX に違反していると言われた。どのルールか説明して", "should_trigger": false},
+  {"query": "月次報告書を PDF/UA で作って検証まで通したい", "should_trigger": false},
+  {"query": "取引先から届いた PDF が改ざんされていないか確認して", "should_trigger": false},
+  {"query": "この XML を XSLT で別の XML に変換したい。要素名の対応表はある", "should_trigger": false},
+  {"query": "体験型マニュアルの作成ツールを SvelteKit で作りたい。ホットスポットを描く画面の設計を考えて", "should_trigger": false},
+  {"query": "Markdown の手順書を Word の文書に変換して。見出しと表はそのまま", "should_trigger": false}
+]

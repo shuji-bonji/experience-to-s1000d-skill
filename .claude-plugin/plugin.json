@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/.claude-plugin/plugin.schema.json",
+  "name": "experience-to-s1000d",
+  "version": "0.1.0",
+  "dependencies": [
+    "s1000d-writer-mcp",
+    "s1000d-verify-mcp"
+  ],
+  "description": "体験型マニュアル（experiential-manual-model の JSON）を S1000D® の CSDB（データモジュール・パブリケーションモジュール・ICN）に変換する手順の Skill。s1000d-writer-mcp の convert_manual で採番・組み立て・検証を行い、残った修正は候補の中から利用者が選び、s1000d-verify-mcp の verify_csdb で CSDB 全体を確かめて、Conversion Report を返す。XML は書かず、S1000D への準拠は判定しない。ASD とは無関係の個人プロジェクト。",
+  "author": {
+    "name": "shuji-bonji",
+    "email": "bonji@mikuro.jp",
+    "url": "https://github.com/shuji-bonji"
+  },
+  "homepage": "https://github.com/shuji-bonji/experience-to-s1000d-skill",
+  "repository": "https://github.com/shuji-bonji/experience-to-s1000d-skill",
+  "license": "MIT",
+  "keywords": ["s1000d", "skill", "experiential-manual", "csdb", "data-module", "conversion", "mcp"]
+}
