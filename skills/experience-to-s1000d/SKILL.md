@@ -25,9 +25,9 @@ description: 体験型マニュアル（experiential-manual-model の JSON。Top
 | MCP | 必須/任意 | 最低版 | 役割 |
 |---|---|---|---|
 | s1000d-writer-mcp | **必須** | 0.1.1 | `convert_manual`（採番・組み立て・検証・書き込み）、`apply_fixes`（選んだ修正の適用） |
-| s1000d-verify-mcp | **必須** | 0.6.0 | `verify_csdb`（CSDB 全体の検証）、`check_references`（参照の内訳） |
+| s1000d-verify-mcp | **必須** | 0.6.1 | `verify_csdb`（CSDB 全体の検証）、`check_references`（参照の内訳） |
 | s1000d-brex-mcp | 任意 | 0.4.0 | `list_notations`（図の形式を BREX が許すか）、`lookup_value`（機密区分などの許可値） |
-| s1000d-reader-mcp | 任意 | 0.7.0 | `read_data_module`（変換結果を構造として読んで見せる） |
+| s1000d-reader-mcp | 任意 | 0.7.1 | `read_data_module`（変換結果を構造として読んで見せる） |
 
 writer か verify が未接続なら、変換は成立しない。次を伝えて停止する。
 
@@ -136,8 +136,10 @@ writer か verify が未接続なら、変換は成立しない。次を伝え�
 
 `verify_csdb` を `csdbDirs` で呼ぶ。`totals`（`schemaValid`、`schemaInvalid`、`schemaNotFound`、`brexPassed`、`brexViolations`、`brexIncomplete`、`referencesUnresolved`、`unreadable`）を、Phase 4 の書き方で報告する。
 
+- **書いた直後のファイルが見えること。** verify 0.6.1・reader 0.7.1 以降は、サーバーを起動した後に書いたファイルも次の呼び出しから見える。それより古い版は、起動時に作った CSDB の索引を使い続けるので、書いた直後の DM・PM が見えない（見つからない、件数に入らない）ことがある。その場合は、該当の MCP（verify・reader）を起動し直してからやり直す。`totals.verified` が Phase 6 で書いた件数より少ないときは、まずこれを疑う
 - 件数が多いときは `offset` / `limit` で分けて読む。全件の詳細は `reportPath` で JSON に書き出せる
 - 違反があれば、`suggest_fixes` でその DM の候補を得て Phase 5 に戻る
+- **`totals` を読むときの注意（spec モード: 配布物の既定 BREX を使うとき）。** 既定 BREX は仕様書の配布物（`S1000D_SPEC_DIR`）の中にあり、CSDB のフォルダーには無い。`csdbDirs` に書き込み先だけを渡すと、DM の `brexDmRef` が指す既定 BREX への参照が、未解決（`referencesUnresolved`）として数えられることがある（core 0.8.1 以降、つまり verify 0.6.1 では、BREX の工程でたどれた層は解決済みになる）。逆に、`verify_csdb` に既定 BREX のフォルダーまで渡すと、既定 BREX 自身の DM も検証の対象に入り、`verified`・`brexPassed` などの件数に加わる。変換した DM の件数と合わせるときは、`results[]` の `path` で分けて数え、残った未解決は `check_references` の内訳で確かめる
 - reader があれば、`read_data_module`（`section: "outline"`）で変換結果を構造として見せられる。機密区分が付いているので、本文を引用する前に利用者に確かめる
 
 ### Phase 8 — Conversion Report

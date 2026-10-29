@@ -14,7 +14,7 @@
 | `icn.cageCode` | ICN に入る CAGE コード（英数字 5 文字） | 「ICN を発行する企業の CAGE コード」。`responsiblePartnerCompany` と `originator` を省くと、この値が入る |
 | `icn.next` | 次に使う ICN の連番 | 初回は `1`。続きは前回の応答の `icnNext` |
 | `ledger` | 前回の台帳 | 下の「台帳」 |
-| `brexDmRef` | 従う BREX の DMC | 省略すると、`S1000D_SPEC_DIR` にある既定 BREX。プロジェクト専用の BREX があれば、その DMC を聞く |
+| `brexDmRef` | 従う BREX の DMC | 省略すると、`S1000D_SPEC_DIR` にある既定 BREX。既定 BREX が見つからないときは `brexDmRef` ごと省かれ、BREX は照合されない（`brex.state: not-run`）。プロジェクト専用の BREX があれば、その DMC を聞く |
 
 `rules.disassyCode` を指定すると分解コードを連番にしない（衝突は入力の誤りとして返る）。省略した既定のままでよい。
 
