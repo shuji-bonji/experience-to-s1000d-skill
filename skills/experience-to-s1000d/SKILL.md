@@ -119,7 +119,7 @@ writer か verify が未接続なら、変換は成立しない。次を伝え�
 
 選んでもらった修正は `apply_fixes` で適用する。
 
-- `selections[]` に、`fixes[]` の `location` と**候補 1 つ**（`action`、`target`、`value`）を写す。候補の外の値や、範囲に合わない値は `rejected[]` に理由付きで返る
+- `selections[]` に、`fixes[]` の `location` と**候補 1 つ**（`action`、`target`、`value`。候補に `position` があればそれも）を写す。写し漏れがあると `candidate-not-offered` で断られる。`position` を受け取るのは writer 0.3.1 より後の版。0.3.1 までは、`position` が付いた候補（兄弟を前に足す候補）は適用できないので、利用者に伝える。候補の外の値や、範囲に合わない値は `rejected[]` に理由付きで返る
 - `apply_fixes` は**既存の文書**（`path` か `xml`）を受ける。まだ書いていない DM は、`topics` をその Topic だけにして `includeXml: true` で変換し直し、`xml` を渡す。書いた後なら `path` を渡す
 - `action: "provide"` の候補は、文書ではなく製品の値（`product`）を与えるもの
 - 適用後に再検証される。`verification` を読み直して報告する
