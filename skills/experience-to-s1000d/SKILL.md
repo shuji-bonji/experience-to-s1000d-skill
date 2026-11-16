@@ -24,7 +24,7 @@ description: 体験型マニュアル（experiential-manual-model の JSON。Top
 
 | MCP | 必須/任意 | 最低版 | 役割 |
 |---|---|---|---|
-| s1000d-writer-mcp | **必須** | 0.1.1 | `convert_manual`（採番・組み立て・検証・書き込み）、`apply_fixes`（選んだ修正の適用） |
+| s1000d-writer-mcp | **必須** | 0.4.0 | `convert_manual`（採番・組み立て・検証・書き込み）、`apply_fixes`（選んだ修正の適用） |
 | s1000d-verify-mcp | **必須** | 0.6.1 | `verify_csdb`（CSDB 全体の検証）、`check_references`（参照の内訳） |
 | s1000d-brex-mcp | 任意 | 0.4.0 | `list_notations`（図の形式を BREX が許すか）、`lookup_value`（機密区分などの許可値） |
 | s1000d-reader-mcp | 任意 | 0.7.1 | `read_data_module`（変換結果を構造として読んで見せる） |
@@ -119,7 +119,7 @@ writer か verify が未接続なら、変換は成立しない。次を伝え�
 
 選んでもらった修正は `apply_fixes` で適用する。
 
-- `selections[]` に、`fixes[]` の `location` と**候補 1 つ**（`action`、`target`、`value`。候補に `position` があればそれも）を写す。写し漏れがあると `candidate-not-offered` で断られる。`position` を受け取るのは writer 0.3.1 より後の版。0.3.1 までは、`position` が付いた候補（兄弟を前に足す候補）は適用できないので、利用者に伝える。候補の外の値や、範囲に合わない値は `rejected[]` に理由付きで返る
+- `selections[]` に、`fixes[]` の `location` と**候補 1 つ**（`action`、`target`、`value`。候補に `position` があればそれも）を写す。写し漏れがあると `candidate-not-offered` で断られる。`position` を受け取るのは writer 0.4.0 以降。0.3.1 までは、`position` が付いた候補（兄弟を前に足す候補）は適用できないので、利用者に伝える。候補の外の値や、範囲に合わない値は `rejected[]` に理由付きで返る
 - `apply_fixes` は**既存の文書**（`path` か `xml`）を受ける。まだ書いていない DM は、`topics` をその Topic だけにして `includeXml: true` で変換し直し、`xml` を渡す。書いた後なら `path` を渡す
 - `action: "provide"` の候補は、文書ではなく製品の値（`product`）を与えるもの
 - 適用後に再検証される。`verification` を読み直して報告する

@@ -49,7 +49,7 @@ flowchart LR
 
 | MCP サーバー | 必須 | 最低版 | 役割 |
 |---|---|---|---|
-| [s1000d-writer-mcp](https://www.npmjs.com/package/@shuji-bonji/s1000d-writer-mcp) | 必須 | 0.1.1 | `convert_manual`、`apply_fixes` |
+| [s1000d-writer-mcp](https://www.npmjs.com/package/@shuji-bonji/s1000d-writer-mcp) | 必須 | 0.4.0 | `convert_manual`、`apply_fixes` |
 | [s1000d-verify-mcp](https://www.npmjs.com/package/@shuji-bonji/s1000d-verify-mcp) | 必須 | 0.6.1 | `verify_csdb`、`check_references` |
 | [s1000d-brex-mcp](https://www.npmjs.com/package/@shuji-bonji/s1000d-brex-mcp) | 任意 | 0.4.0 | `list_notations`、`lookup_value` |
 | [s1000d-reader-mcp](https://www.npmjs.com/package/@shuji-bonji/s1000d-reader-mcp) | 任意 | 0.7.1 | `read_data_module` |
