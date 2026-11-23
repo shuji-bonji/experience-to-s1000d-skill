@@ -101,7 +101,7 @@ writer か verify が未接続なら、変換は成立しない。次を伝え�
 | `references.state: unresolved` | 内訳を確かめて書く（次の注意） | 一括で「参照切れ」「問題なし」 |
 
 > [!NOTE]
-> `references.state` が `unresolved` でも、原因が仕様書の章への `dmRef`（モデル識別コード `S1000D`）だけのことがある。`fixes[]` が空で `omitted.specificationReferences` が `unresolvedCount` と同じなら、残りは仕様書への参照だけで、CSDB に無いのが通常。内訳に迷ったら verify の `check_references` で確かめ、「仕様書への参照のみ未解決」と書く。
+> 仕様書の章への `dmRef`（モデル識別コード `S1000D`）は、プロジェクトの CSDB に無いのが通常で、誤りではない。`verification.references` に `specificationReferences`（件数）が付く版では、これは `unresolvedCount` に入らず、仕様書への参照だけが残っていても `references.state` は `resolved` になる。そのときは「参照はすべて解決。仕様書への参照 N 件は CSDB の外」と書く。`specificationReferences` が付かない古い版では、`references.state` が `unresolved` でも、原因が仕様書への参照だけのことがある。`fixes[]` が空で `omitted.specificationReferences` が `unresolvedCount` と同じなら、残りは仕様書への参照だけなので、「仕様書への参照のみ未解決」と書く。内訳に迷ったら verify の `check_references` で確かめる。
 
 ### Phase 5 — 残った修正を片付ける
 
