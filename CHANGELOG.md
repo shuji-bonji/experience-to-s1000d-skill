@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5 (2026-11-24)
+
+### 変更
+
+- `references/not-represented.md` に、`notRepresented[]` の `where` は最初の 5 件であることと、入らなかった数（`whereOmitted`。s1000d-writer-mcp 0.9.0 から）を「ほかに N 件」と伝えることを書きました。Grok Build の試用の所見 F-12 への対応です。手順は変わりません。
+
 ## 0.1.4 (2026-11-24)
 
 ### 変更
